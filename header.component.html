@@ -1,0 +1,15 @@
+<header class="header">
+    <nav class="nav-container">
+      <div class="logo">
+        <a routerLink="/">MyApp</a>
+      </div>
+      <button class="menu-toggle" (click)="toggleMenu()">
+        <span class="material-icons">menu</span>
+      </button>
+      <ul class="nav-links" [class.active]="isMenuOpen">
+        <li><a routerLink="/" routerLinkActive="active" 
+               [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+        <li><a routerLink="/user-form" routerLinkActive="active">User Form</a></li>
+      </ul>
+    </nav>
+  </header>

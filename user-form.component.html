@@ -1,0 +1,66 @@
+<div class="form-container">
+    <h2>User Information</h2>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="user-form">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input 
+          id="firstName"
+          type="text"
+          formControlName="firstName"
+          [class.invalid]="submitted && userForm.get('firstName')?.errors"
+        >
+        <div class="error-message" 
+             *ngIf="submitted && userForm.get('firstName')?.errors?.['required']">
+          First name is required
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input 
+          id="lastName"
+          type="text"
+          formControlName="lastName"
+          [class.invalid]="submitted && userForm.get('lastName')?.errors"
+        >
+        <div class="error-message" 
+             *ngIf="submitted && userForm.get('lastName')?.errors?.['required']">
+          Last name is required
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+          id="email"
+          type="email"
+          formControlName="email"
+          [class.invalid]="submitted && userForm.get('email')?.errors"
+        >
+        <div class="error-message" 
+             *ngIf="submitted && userForm.get('email')?.errors?.['required']">
+          Email is required
+        </div>
+        <div class="error-message" 
+             *ngIf="submitted && userForm.get('email')?.errors?.['email']">
+          Please enter a valid email
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input 
+          id="phone"
+          type="tel"
+          formControlName="phone"
+          [class.invalid]="submitted && userForm.get('phone')?.errors"
+        >
+        <div class="error-message" 
+             *ngIf="submitted && userForm.get('phone')?.errors?.['pattern']">
+          Please enter a valid 10-digit phone number
+        </div>
+      </div>
+  
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
